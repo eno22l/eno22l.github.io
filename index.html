@@ -1,10 +1,10 @@
 <html>
+<head>
 <style>
 table, th, td {
-  border:1px solid red;
+    border:1px solid red;
 }
 </style>
-<head>
 <title>My Webpage</title>
 </head>
 <body>
@@ -14,7 +14,7 @@ table, th, td {
 
 <p> I am learning to code faster than I thought I would!<br>I am really enjoying learning about the different elements of design that are involved! <I>I am an Art major so this particular part of the process is super interesting to me.</I><br>I am from Buffalo, NY, and am a sophomore at Mount Holyoke! I am double-majoring in Art Studio &amp; English. This semester I am studying computer science, entrepreneurship, experimental photography, and writing.</p>
 
-<p> The <a HREF=“https://buffaloakg.org/“>AKG</a> is one of my favorite places in Buffalo!<br><a> Stanley Whitney’s <a HREF=“https://buffaloakg.org/art/exhibitions/how-high-moon”><I>How High the Moon</I></a>is one of their current exhibitions on display.</a>
+<p> The <a href="https://buffaloakg.org/">AKG</a> is one of my favorite places in Buffalo!<br><a> Stanley Whitney’s <a href="https://buffaloakg.org/art/exhibitions/how-high-moon"><I>How High the Moon</I></a> is one of their current exhibitions on display.</a>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eTEKGOi6SVg?si=VNdzQDcEw2dSWZ5q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -30,8 +30,6 @@ table, th, td {
         <br>         
         <input type="text" name="userInput" >
         <input type="button" value="Send" onClick="displayFeedback(this.form)">
-	<feedbackText=“Hello,” + “userInput”>
-
     </form>
    </div>
    </div>  
@@ -42,12 +40,12 @@ var counter=0;
 var totalQuestions=4;
 
 var myGraduationYear= 2026;
-var myMajor=“English”;
+var myMajor="English";
 
 //create a list of the majors you are/ were interested in
-var majorInterestedList=[“biology”, “philosophy”, “environmental studies”, “economics” ];
+var majorInterestedList=["biology", "philosophy", "environmental studies", "economics" ];
 
-var favArtistsList=[“Lake Street Dive”, “Ariana Grande”, “Billie Holiday”];
+var favArtistsList=["Lake Street Dive", "Ariana Grande", "Billie Holiday"];
 
 var userName;
 
@@ -69,60 +67,56 @@ var userName;
         }
 
         if (counter==2) {        
-            feedbackText=“Awesome!”; 
+            feedbackText="Awesome!"; 
             newQuestionText="What’s your major ?";              
         }
 
         if (counter==3) {     
-            if (userInput.toLowerCase()== myMajor) feedbackText=“Cool! I’m also majoring in "+ userInput+"."; 
-            
+            if (userInput.toLowerCase()== myMajor) feedbackText="Cool! I’m also majoring in "+ userInput+"."; 
             else {
-                feedbackText="I guess you must find "+userInput+" very interesting."+" I’m majoring in "+myMajor;
+                feedbackText="I guess you must find "+userInput+" very interesting. I’m majoring in "+myMajor;
                 
                 //check if user's major is one the majors in your majorInterestedList 
                 for (let i = 0; i < majorInterestedList.length; i++) {      
                     if (userInput.toLowerCase() == majorInterestedList[i]) {
-                        feedbackText=userInput+ " was one of the majors I was interested in pursuing.”+
-                        " I am now majoring in "+myMajor+".";
+                        feedbackText=userInput+ " was one of the majors I was interested in pursuing. I am now majoring in "+myMajor+".";
                     }    
                 }
-        }
-
-        newQuestionText="When are you graduating ?"; 
+            }
+            newQuestionText="When are you graduating ?"; 
         }
 
         if (counter==4) {     
-            if (userInput== myGraduationYear) feedbackText=“Me too! ";  
+            if (userInput== myGraduationYear) feedbackText="Me too!";  
             else if (userInput< myGraduationYear) feedbackText="Nice. You’ll be graduating earlier than me."; 
             else if (userInput> myGraduationYear) feedbackText="Nice. I will be graduating in "+ myGraduationYear+", a bit later than you.";
             else feedbackText="Thanks for sharing.";  
-        }
-        
-		newQuestionText=“How old are you?”;
-		}
-
-		feedbackText=“Cool! I’m 20.”
-		}
-
- 		newQuestionText=“Who’s your favorite artist?”;              
+            newQuestionText="How old are you?";
         }
 
-        if (counter==3) {     
-                //check if user's favorite artist is one of the artist in your favArtistList 
-                for (let i = 0; i < favArtistList.length; i++) {      
-                    if (userInput.toLowerCase() == favArtistList[i]) {
-                        feedbackText=userInput+ “That’s one of my favorites too!
-
-        //if you have reached the last question
-        if (counter>=totalQuestions ) {
-            feedbackText=feedbackText+"<br><br>It was nice talking to you, "+userName+"."+
-            "<br>I hope you have a great day!";           
+        if (counter==5) {     
+            feedbackText="Cool! I’m 20.";
+            newQuestionText="Who’s your favorite artist?";              
         }
-      
+
+        if (counter==6) {     
+            //check if user's favorite artist is one of the artists in your favArtistsList 
+            for (let i = 0; i < favArtistsList.length; i++) {      
+                if (userInput.toLowerCase() == favArtistsList[i].toLowerCase()) {
+                    feedbackText=userInput+ " That’s one of my favorites too!";
+                }    
+            }
+            //if you have reached the last question
+            if (counter>=totalQuestions ) {
+                feedbackText=feedbackText+"<br><br>It was nice talking to you, "+userName+"."+
+                "<br>I hope you have a great day!";           
+            }
+        }
+
         //update the feedback and clear the input box
         document.getElementById("botSays").innerHTML = feedbackText+ "<br><br>"+newQuestionText;   
         form.userInput.value=""; 
     }
 </script>
 </body>
-</html></div>
+</html>
